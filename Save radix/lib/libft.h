@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 08:32:22 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/01 04:33:05 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/06/28 20:48:52 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,5 @@ char	*ft_strdup(const char *s1);
 int		ft_strcmp(char *s1, char *s2);
 char	*ft_strjoin(char const *s1, char const *s2);
 int		ft_strlen_1(char *str);
-int     ft_isspace(char c);
 
 #endif

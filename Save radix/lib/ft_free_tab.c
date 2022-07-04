@@ -1,39 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atol.c                                          :+:      :+:    :+:   */
+/*   ft_free_tab.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/23 18:18:16 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/01 04:27:17 by gcomlan          ###   ########.fr       */
+/*   Created: 2022/06/23 18:33:20 by gcomlan           #+#    #+#             */
+/*   Updated: 2022/06/26 22:42:13 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long	ft_atol(const char *str)
+void	ft_free_tab(char **tab)
 {
-	int						idx;
-	int						sign;
-	long					storage;
+	int	idx;
 
 	idx = 0;
-	sign = 1;
-	storage = 0;
-	while (str[idx] == ' ' || (str[idx] >= '\t' && str[idx] <= '\r'))
-		idx++;
-	if (str[idx] == '+' || str[idx] == '-')
+	if (tab == NULL)
+		return ;
+	while (tab[idx])
 	{
-		if (str[idx] == '-')
-			sign = -1;
+		free(tab[idx]);
 		idx++;
 	}
-	while (str[idx] != '\0' && (str[idx] >= '0' && str[idx] <= '9'))
-	{
-		storage *= 10;
-		storage += str[idx] - 48;
-		idx++;
-	}
-	return (storage * sign);
+	free(tab);
 }

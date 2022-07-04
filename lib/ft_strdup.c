@@ -1,39 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atol.c                                          :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/23 18:18:16 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/01 04:27:17 by gcomlan          ###   ########.fr       */
+/*   Created: 2022/05/10 14:21:08 by gcomlan           #+#    #+#             */
+/*   Updated: 2022/05/25 23:01:20 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long	ft_atol(const char *str)
+int	ft_strlen_1(char *str)
 {
-	int						idx;
-	int						sign;
-	long					storage;
+	int	size;
+
+	size = 0;
+	while (str[size] != '\0')
+	{
+		size++;
+	}
+	return (size);
+}
+
+char	*ft_strdup(const char *s1)
+{
+	int		idx;
+	char	*dest;
 
 	idx = 0;
-	sign = 1;
-	storage = 0;
-	while (str[idx] == ' ' || (str[idx] >= '\t' && str[idx] <= '\r'))
-		idx++;
-	if (str[idx] == '+' || str[idx] == '-')
+	dest = (char *)malloc(ft_strlen_1((char *)s1) * sizeof(char) + 1);
+	if (dest)
 	{
-		if (str[idx] == '-')
-			sign = -1;
-		idx++;
+		while (s1[idx] != '\0')
+		{
+			dest[idx] = s1[idx];
+			idx++;
+		}
+		dest[idx] = '\0';
+		return (dest);
 	}
-	while (str[idx] != '\0' && (str[idx] >= '0' && str[idx] <= '9'))
-	{
-		storage *= 10;
-		storage += str[idx] - 48;
-		idx++;
-	}
-	return (storage * sign);
+	else
+		return (NULL);
 }

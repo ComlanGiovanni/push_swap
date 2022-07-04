@@ -6,42 +6,31 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 14:57:37 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/06/26 15:26:57 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/02 00:33:01 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/pushswap.h"
 
-/*
-	
-*/
-void	top_is_greater(t_list *a, int s)
+/**
+ * @brief
+ * 
+ * we make sure that if the first nbr is > second_nbr
+ * we swap_stack_a
+ * 
+ * we call ft_sort_stack_of_three if 3elem (5 case hard coded)
+ * 
+ * @param info 
+ */
+void	ft_sort_stack(t_info *info)
 {
-	if (a->first->next->value == s)
-		rotate_stack_a(a);
-	else
+	if (info->size_a == 2)
 	{
-		rotate_stack_a(a);
-		swap_stack_a(a);
+		if (info->top_a->nbr > info->top_a->next->nbr)
+			swap_stack_a(info);
 	}
-}
-
-/*
-	
-*/
-void	top_is_median(t_list *a, int s)
-{
-	if (a->first->next->value == s)
-		swap_stack_a(a);
-	else
-		reverse_rotate_stack_a(a);
-}
-
-/*
-	
-*/
-void	top_is_smallest(t_list *a)
-{
-	swap_stack_a(a);
-	rotate_stack_a(a);
+	else if (info->size_a == 3)
+		ft_sort_stack_of_three(info);
+    else
+		ft_sort_big_stack(info);
 }

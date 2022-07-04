@@ -6,113 +6,147 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 22:37:51 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/06/28 17:46:44 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/04 17:35:21 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSHSWAP_H
 # define PUSHSWAP_H
 
-# define ERROR_MSG	"Error\n"
-
 # include "../lib/libft.h"
 
-typedef struct s_node
-{
-	int				value;
-	int				idx;
-	struct s_node	*next;
-}	t_node;
+/* Define of move string */
 
-typedef struct s_list
+# define ERROR_MSG	"Error\n"
+# define SA_MSG		"sa\n"
+# define SB_MSG		"sb\n"
+# define SS_MSG		"ss\n"
+# define PA_MSG		"pa\n"
+# define PB_MSG		"pb\n"
+# define RA_MSG		"ra\n"
+# define RB_MSG		"rb\n"
+# define RR_MSG		"rr\n"
+# define RRA_MSG	"rra\n"
+# define RRB_MSG	"rrb\n"
+# define RRR_MSG	"rrr\n"
+
+/* Node of a doubly linked list */
+
+typedef struct s_stack
 {
-	t_node	*first;
-	int		nbr_elm;
-}	t_list;
+	int					nbr;
+	struct s_stack		*prev;
+	struct s_stack		*next;
+} t_stack;
+
+typedef struct s_info
+{
+	int					*tab;
+	int					size_a;
+	int					size_b;
+	struct s_stack		*top_a;
+	struct s_stack		*top_b;
+	struct s_stack		*bottom_a;
+	struct s_stack		*bottom_b;
+} t_info;
+
 
 //main.c
-int		check_already_sorted(t_list *nbr_list);
-
-//src/parsing/parsing_str.c
-t_list	*parsing_str(int nbr_int, char **tab_int);
-int		check_digit_str(int nbr_int, char **tab_int);
-int		check_overflow_str(int nbr_int, char **tab_int);
-int		check_doublon_str(int nbr_int, char **tab_int);
-t_list	*tab_to_list_str(int nbr_int, char **tab_int);
-
-//src/parsing/parsing_arg.c
-t_list	*parsing_arg(int ac, char **av);
-int		check_digit_arg(int ac, char **av);
-int		check_overflow_arg(int ac, char **av);
-int		check_doublon_arg(int ac, char **av);
-t_list	*tab_to_list_arg(int nbr_int, char **tab_int);
-
-//src/tools/linkedlist_tools.c
-t_list	*init_list_of_link(int nbr);
-int		add_front(t_list *list, int nbr);
-void	free_list(t_list *list);
-t_list	*duplicate_list(t_list *a);
-void	add_at_the_end(t_list *list, t_node *idx, int nbr);
-
-//src/tools/debug_tools.c
-//int	print_list(t_list *list);
-int		len_of_list(t_node *list);
-void	swap_node(t_node *a, t_node *b);
-//void show_list(t_node *list);
-
-//src/tools/sorting_tools.c  
-void	true_idx(t_list *a, t_list *sorted);
-void	replace_value_by_idx(t_list *a);
-void	stack_of_three_custom(int s, int m, int g, t_list *a);
-void	empty_stack_b(t_list *a, t_list *b);
-void	empty_stack_a(t_list *a, t_list *b);
-
-//src/sorting/small_stack.c
-void	small_stack(t_list *a);
-t_list	*sort_and_attribute_idx(t_list *a);
-void	stack_of_three(t_list *a);
-void	stack_of_four(t_list *a);
-void	stack_of_five(t_list *a);
-
-//src/operation/sa_sb_ss.c
-void	swap_stack(t_list *a);
-void	swap_stack_a(t_list *a);
-void	swap_stack_b(t_list *b);
-void	swap_stack_a_and_stack_b(t_list *a, t_list *b);
-void	bubble_sort(t_list *a, t_node *first, t_node *second);
-
-//src/operation/rra_rrb_rrr.c
-void	reverse_stack(t_list *a);
-void	reverse_rotate_stack_a(t_list *a);
-void	reverse_rotate_stack_b(t_list *b);
-void	reverse_rotate_stack_a_and_stack_b(t_list *a, t_list *b);
-
-//src/operation/ra_rb_rr.c
-void	rotate_stack(t_list *a);
-void	rotate_stack_a(t_list *a);
-void	rotate_stack_b(t_list *b);
-void	rotate_stack_a_and_stack_b(t_list *a, t_list *b);
-
-//src/sorting/stack_tools.c
-void	top_is_greater(t_list *a, int s);
-void	top_is_median(t_list *a, int s);
-void	top_is_smallest(t_list *a);
-
-//src/sorting/small_stack_tools.c
-void	top_is_first(t_list *a, t_list *b);
-void	top_is_second(t_list *a, t_list *b);
-void	top_is_third(t_list *a, t_list *b);
-void	top_is_fourth(t_list *a, t_list *b);
 
 //src/operation/pa_pb.c
-void	push_stack(t_list *a, t_list *b);
-void	push_stack_a(t_list *a, t_list *b);
-void	push_stack_b(t_list *a, t_list *b);
-void	push_stack_b_if_top_is_first(t_list *a, t_list *b);
-void	push_stack_b_if_top_is_second(t_list *a, t_list *b);
+
+void	pa(t_info *info);
+void	push_stack_a(t_info *info);
+void	pb(t_info *info);
+void	push_stack_b(t_info *info);
+
+//src/operation/ra_rb.c
+
+void	ra(t_info *info);
+void	rotate_stack_a(t_info *info);
+void	rb(t_info *info);
+void	rotate_stack_b(t_info *info);
+
+//src/operation/rr_rrr.c
+
+void	rr(t_info *info);
+void	rotate_stack_a_and_b(t_info *info);
+void	rrr(t_info *info);
+void	reverse_rotate_stack_a_and_b(t_info *info);
+
+//src/operation/rra_rrb.c
+
+void	rra(t_info *info);
+void	reverse_rotate_a(t_info *info);
+void	rrb(t_info *info);
+void	reverse_rotate_b(t_info *info);
+
+//src/operation/sa_sb.c
+
+void	sa(t_info *info);
+void	swap_stack_a(t_info *info);
+void	sb(t_info *info);
+void	swap_stack_b(t_info *info);
+
+//src/operation/ss.c
+
+void	ss(t_info *info);
+void	swap_stack_a_and_b(t_info *info);
+
+//src/parsing/parsing_tools.c
+
+int     ft_get_str_size(int argc, char **argv);
+int		*ft_argv_in_tab(int argc, char **argv, int tab_size);
+void	ft_nbr_in_tab(int *tab_nbr, int *tab_idx, char **str_nbr_splitted);
+void	ft_tab_in_info(t_info *info, int *tab_nbr, int tab_size);
+int     ft_get_size_of(char **splitted_nbr_str);
+
+//src/sorting/big_stack_tools.c
+
+int		ft_set_location_in_a(int number, t_info *info);
+int		ft_set_a_location_min(t_info *info);
+int		ft_set_a_location_max(t_info *info);
+int		ft_set_a_location_mid(int number, t_info *info);
+void	ft_shift_a_and_b(t_info *info, int *move_for_a, int *move_for_b);
+
 
 //src/sorting/big_stack.c
-void	push_last_bit_one(t_list *a, t_list *b, int size, int bit_max);
-void	big_stack(t_list *a);
+
+void	ft_sort_big_stack(t_info *info);
+void	ft_get_pivot_and_split(t_info *info);
+void	ft_split_by_three(t_info *info, int pivot_1, int pivot_2);
+void	ft_sort_last_chunk(t_info *info);
+void	ft_get_min_move(t_info *info, int *move_for_a, int *move_for_b);
+
+
+//src/sorting/stack_tools.c
+
+void	ft_sort_stack_of_three(t_info *info);
+
+//src/sorting/small_stack.c
+
+void	ft_sort_stack(t_info *info);
+
+//src/tools/debug_tools.c
+
+int		ft_print_error(int error_code);
+t_info	*ft_init_info(void);
+t_stack	*ft_init_stack(void);
+int		ft_atoll_check_max_int(const char *str);
+
+//src/tools/linked_list_tools.c
+
+void	ft_check_tab_already_sorted(int *tab_nbr, int tab_size, int idx);
+void	ft_free_str(char **str);
+void	ft_free_a(t_info *info);
+void	ft_free_b(t_info *info);
+
+//src/tools/sorting_tools.c
+
+int		ft_get_stack_min_nbr(t_stack *stack);
+int		ft_get_stack_max_nbr(t_stack *stack);
+int		ft_get_min(int move_for_a, int move_for_b, int idx_in_a, int idx_in_b);
+void	ft_shift_a(t_info *info, int move_for_a);
+void	ft_shift_b(t_info *info, int move_for_b);
 
 #endif

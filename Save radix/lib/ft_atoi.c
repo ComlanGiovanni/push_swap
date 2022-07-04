@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atol.c                                          :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/23 18:18:16 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/01 04:27:17 by gcomlan          ###   ########.fr       */
+/*   Created: 2022/05/10 14:21:08 by gcomlan           #+#    #+#             */
+/*   Updated: 2022/06/25 23:41:50 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long	ft_atol(const char *str)
+int	ft_atoi(const char *str)
 {
 	int						idx;
 	int						sign;
-	long					storage;
+	long long int			storage;
 
 	idx = 0;
 	sign = 1;

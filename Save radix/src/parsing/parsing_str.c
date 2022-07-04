@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 22:37:51 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/06/28 17:34:12 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/06/30 21:02:14 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ t_list	*parsing_str(int nbr_int, char **tab_int)
 	check = 0;
 	tab_in = ft_split(tab_int[1], ' ');
 	nbr_in = ft_count_str(tab_int[1], ' ');
+	(void)nbr_int;
 	if (check_digit_str(nbr_in, tab_in))
 		check = 1;
 	if (check_overflow_str(nbr_in, tab_in))

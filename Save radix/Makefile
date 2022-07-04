@@ -6,12 +6,12 @@
 #    By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/20 14:04:12 by gcomlan           #+#    #+#              #
-#    Updated: 2022/07/04 18:12:06 by gcomlan          ###   ########.fr        #
+#    Updated: 2022/06/28 23:39:01 by gcomlan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-GCC = gcc -Wall -Wextra -Werror -g
+GCC = gcc -Wall -Wextra -Werror -g3
 
 NAME		=	push_swap
 
@@ -24,23 +24,40 @@ RM			= rm -f
 #Files
 SRC		=	main.c \
 			./src/operation/pa_pb.c \
-			./src/operation/ra_rb.c \
-			./src/operation/rr_rrr.c \
-			./src/operation/rra_rrb.c \
-			./src/operation/sa_sb.c \
-			./src/operation/ss.c \
-			./src/parsing/parsing_tools.c \
-			./src/sorting/big_stack_tools.c \
+			./src/operation/ra_rb_rr.c \
+			./src/operation/rra_rrb_rrr.c \
+			./src/operation/sa_sb_ss.c \
+			./src/parsing/parsing_arg.c \
+			./src/parsing/parsing_str.c \
 			./src/sorting/big_stack.c \
 			./src/sorting/small_stack.c \
+			./src/sorting/small_stack_tools.c \
 			./src/sorting/stack_tools.c \
 			./src/tools/debug_tools.c \
-			./src/tools/linked_list_tools.c \
+			./src/tools/linkedlist_tools.c \
 			./src/tools/sorting_tools.c
 
 SRCS_BONUS	=   ./bonus/main.c \
             	./bonus/checker.c \
 				./bonus/tools.c \
+				./bonus/get_next_line_bonus.c \
+				./bonus/push_a_b.c \
+				./bonus/reverse_stack_a_b.c \
+				./bonus/rotate_stack_a_b.c \
+				./bonus/swap_a_b.c \
+							./src/operation/pa_pb.c \
+			./src/operation/ra_rb_rr.c \
+			./src/operation/rra_rrb_rrr.c \
+			./src/operation/sa_sb_ss.c \
+				./src/parsing/parsing_arg.c \
+				./src/parsing/parsing_str.c \
+				./src/sorting/big_stack.c \
+				./src/sorting/small_stack.c \
+				./src/sorting/small_stack_tools.c \
+				./src/sorting/stack_tools.c \
+				./src/tools/debug_tools.c \
+				./src/tools/linkedlist_tools.c \
+				./src/tools/sorting_tools.c
 
 #Obj
 SRC_OBJS		=	$(SRC:.c=.o)

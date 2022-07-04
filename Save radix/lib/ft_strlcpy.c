@@ -1,39 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atol.c                                          :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/23 18:18:16 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/01 04:27:17 by gcomlan          ###   ########.fr       */
+/*   Created: 2022/03/13 16:48:17 by gcomlan           #+#    #+#             */
+/*   Updated: 2022/06/24 02:40:44 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long	ft_atol(const char *str)
+size_t	ft_strlen_2(const char *s)
 {
-	int						idx;
-	int						sign;
-	long					storage;
+	size_t	size;
 
+	size = 0;
+	if (!s)
+		return (0);
+	while (s[size++] != '\0')
+		;
+	return (size - 1);
+}
+
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+{
+	size_t	idx;
+	size_t	len;
+
+	len = ft_strlen_2(src);
 	idx = 0;
-	sign = 1;
-	storage = 0;
-	while (str[idx] == ' ' || (str[idx] >= '\t' && str[idx] <= '\r'))
-		idx++;
-	if (str[idx] == '+' || str[idx] == '-')
+	if (dstsize != 0)
 	{
-		if (str[idx] == '-')
-			sign = -1;
-		idx++;
+		while (src[idx] != '\0' && idx < dstsize - 1)
+		{
+			dst[idx] = src[idx];
+			idx++;
+		}
+		dst[idx] = '\0';
 	}
-	while (str[idx] != '\0' && (str[idx] >= '0' && str[idx] <= '9'))
-	{
-		storage *= 10;
-		storage += str[idx] - 48;
-		idx++;
-	}
-	return (storage * sign);
+	return (len);
 }

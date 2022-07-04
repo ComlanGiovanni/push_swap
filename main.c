@@ -6,89 +6,59 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 22:37:51 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/06/28 15:38:30 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/04 18:10:40 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/pushswap.h"
 
-/*
-	THIS FCT CHECK IF
-	THE NUMBER SEND IS 
-	ALREADY SORTED
-*/
-
-int	check_already_sorted(t_list *nbr_list)
-{
-	t_node	*c;
-	t_node	*d;
-
-	c = nbr_list->first;
-	d = nbr_list->first->next;
-	while (d != NULL)
-	{
-		if (c->value < d->value)
-		{
-			c = d;
-			d = d->next;
-		}
-		else
-			return (0);
-	}
-	return (1);
-}
-
-/*
-  IN THIS MAIN WE PARS BY THE TYPE WE RECIEVE
-  IF WE GET "45 25 8954 5" WE SPLIT BY SPACE
-  ELSE WE PUT ARGV 1 ++ BY THE END ARG
-
-  FOR THE PARSING WE NEED THE LEN OF TAB_INT
-  
-  WE HANDLE ERROR I MALLOC FAIL     ERROR
-  WE CHECK IF SORTED AND WE FREE WHEN ALL DONE
-
-  WE REDIRECT AT 2 FCT BIG AND LESS THAN 5 INTEGER
-*/
-
+/**
+ * @brief 
+ * 
+ * We exit if yu have less the 2 argument
+ * we init the info struct get the size of
+ * the str_nbr or proper malloc
+ * we then put the numbers in a tab with 
+ * proper check max/min(int) +/- etc
+ * then check for doublon and sort with a
+ * bubble sort
+ * 
+ * argc meaning is argument count
+ * argv meaning is argument vector
+ * 
+ * i am wondering if i should stop using 3 char var name
+ * --- You should name a variable using the same care ---
+ * 	  --- with which you name a first-born child ---
+ * 				[Robert C. Martin]
+ * 
+ * idx -> index;
+ * tmp -> temp;
+ * 
+ * Think its would be more cleat
+ * 
+ * @param argc 
+ * @param argv 
+ * @return int 
+ */
 int	main(int argc, char **argv)
 {
-	t_list	*nbr_list;
+	int			tab_size;
+	int			*tab_nbr;
+	t_info		*info;
 
 	if (argc < 2)
-		return (0);
-	if (argc == 2)
-		nbr_list = parsing_str(argc, argv);
-	else
-		nbr_list = parsing_arg(argc, argv);
-	if (nbr_list == NULL)
-	{
-		write(2, ERROR_MSG, 7);
-		return (1);
-	}
-	if (check_already_sorted(nbr_list) == 1)
-	{
-		free_list(nbr_list);
-		return (0);
-	}
-	if (nbr_list->nbr_elm < 6)
-		small_stack(nbr_list);
-	else
-		big_stack(nbr_list);
-	free_list(nbr_list);
-	return (0);
+		ft_print_error(-1);
+	tab_size = 0;
+	info = ft_init_info();
+	tab_size = ft_get_str_size(argc, argv);
+	tab_nbr = ft_argv_in_tab(argc, argv, tab_size);
+	ft_tab_in_info(info, tab_nbr, tab_size);
+	ft_check_tab_already_sorted(tab_nbr, tab_size, 0);
+	info->tab = tab_nbr;
+	ft_sort_stack(info);
+	ft_free_a(info);
+	ft_free_b(info);
+	free(info);
+	free(tab_nbr);
+	return (EXIT_SUCCESS);
 }
-
-/*
-LIB
-ft_putstr_fd
-ft_split
-if const problem remove
-ft_count str from lib remove if you add split
-ft_strlen.c
-ft_isdigit.c
-ft_atoi.c
-ft_atol.c
-ft_putstr_fd.c
-#define INT_MAX 2147483647 neg too o just put - in front
-*/
