@@ -6,16 +6,23 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 17:45:56 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/04 12:12:47 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/06 12:43:00 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/pushswap.h"
 
+/**
+ * @brief 
+ * 
+ * 
+ * 
+ * @param info 
+ */
 void	ft_sort_big_stack(t_info *info)
 {
-	int	move_for_a;//a
-	int	move_for_b;//b
+	int	move_for_a;
+	int	move_for_b;
 
 	ft_get_pivot_and_split(info);
 	while (info->size_a > 3)
@@ -110,12 +117,18 @@ void	ft_split_by_three(t_info *info, int pivot_1, int pivot_2)
 		rotate_stack_a(info);
 }
 
+/**
+ * @brief 
+ * 
+ * 
+ * 
+ * 
+ * @param info 
+ */
 void	ft_sort_last_chunk(t_info *info)
 {
-	//int	min;
 	int	min_location;
 
-	//min = ft_get_stack_min_nbr(info->top_a);
 	min_location = ft_set_a_location_min(info);
 	while (min_location)
 	{
@@ -132,28 +145,37 @@ void	ft_sort_last_chunk(t_info *info)
 	}
 }
 
+/**
+ * @brief 
+ * 
+ * 
+ * 
+ * @param info 
+ * @param move_for_a 
+ * @param move_for_b 
+ */
 void	ft_get_min_move(t_info *info, int *move_for_a, int *move_for_b)
 {
 	int			idx;
 	int			number;
-    int			idx_in_a;
-	int			idx_in_b;
-	t_stack     *tmp_stack_b;
+	int			idx_a;
+	int			idx_b;
+	t_stack		*tmp_stack_b;
 
 	idx = 0;
 	tmp_stack_b = info->top_b;
 	while (idx < info->size_b)
 	{
 		number = tmp_stack_b->nbr;
-		idx_in_a = ft_set_location_in_a(number, info);
+		idx_a = ft_set_location_in_a(number, info);
 		if (idx >= (info->size_b + 1) / 2)
-			idx_in_b = (info->size_b - idx) * -1;
+			idx_b = (info->size_b - idx) * -1;
 		else
-			idx_in_b = idx;
-		if (idx == 0 || ft_get_min(*move_for_a, *move_for_b, idx_in_a, idx_in_b))
+			idx_b = idx;
+		if (idx == 0 || ft_get_min(*move_for_a, *move_for_b, idx_a, idx_b))
 		{
-			*move_for_a = idx_in_a;
-			*move_for_b = idx_in_b;
+			*move_for_a = idx_a;
+			*move_for_b = idx_b;
 		}
 		tmp_stack_b = tmp_stack_b->next;
 		idx++;

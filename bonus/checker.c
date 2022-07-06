@@ -6,99 +6,99 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 20:06:59 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/06/29 10:55:27 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/06 13:01:19 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/checker.h"
+#include "../include/pushswap.h"
 
-int	commands(t_list *stack_a, t_list *stack_b, char *line)
+int	ft_commands(t_info *info, char *line)
 {
 	if (!(ft_strcmp(line, "sa")))
 	{
-		s_stack_a(stack_a);
+		sa(info);
 		write(1, "A : ", 3);
-        print_list(stack_a);
+		ft_print_stack_a(info);
 		return (0);
 	}
 	if (!(ft_strcmp(line, "sb")))
 	{
-		s_stack_b(stack_b);
-        write(1, "B : ", 3);
-        print_list(stack_b);
+		sb(info);
+		write(1, "B : ", 3);
+		ft_print_stack_b(info);
 		return (0);
 	}
 	if (!(ft_strcmp(line, "ss")))
 	{
-		s_stack_a_and_stack_b(stack_a, stack_b);
-        write(1, "A : ", 3);
-        print_list(stack_a);
-        write(1, "B : ", 3);
-        print_list(stack_b);
+		ss(info);
+		write(1, "A : ", 3);
+		ft_print_stack_a(info);
+		write(1, "B : ", 3);
+		ft_print_stack_b(info);
 		return (0);
 	}
 	if (!(ft_strcmp(line, "pa")))
 	{
-		p_stack_a(stack_a, stack_b);
-        write(1, "A : ", 3);
-        print_list(stack_a);
-        write(1, "B : ", 3);
-        print_list(stack_b);
+		pa(info);
+		write(1, "A : ", 3);
+		ft_print_stack_a(info);
+		write(1, "B : ", 3);
+		ft_print_stack_b(info);
 		return (0);
 	}
 	if (!(ft_strcmp(line, "pb")))
 	{
-        p_stack_b(stack_a, stack_b);
+		pb(info);
 		write(1, "A : ", 3);
-        print_list(stack_a);
-        write(1, "B : ", 3);
-        print_list(stack_b);
+		ft_print_stack_a(info);
+		write(1, "B : ", 3);
+		ft_print_stack_b(info);
 		return (0);
 	}
 	if (!(ft_strcmp(line, "ra")))
 	{
-		ro_stack_a(stack_a);
+		ra(info);
 		write(1, "A : ", 3);
-        print_list(stack_a);
+		ft_print_stack_a(info);
 		return (0);
 	}
 	if (!(ft_strcmp(line, "rb")))
 	{
-		ro_stack_b(stack_b);
+		rb(info);
 		write(1, "B : ", 3);
-        print_list(stack_b);
+		ft_print_stack_b(info);
 		return (0);
 	}
 	if (!(ft_strcmp(line, "rr")))
 	{
-		ro_stack_a_and_stack_b(stack_a, stack_b);
+		rr(info);
 		write(1, "A : ", 3);
-        print_list(stack_a);
-        write(1, "B : ", 3);
-        print_list(stack_b);
+		ft_print_stack_a(info);
+		write(1, "B : ", 3);
+		ft_print_stack_b(info);
 		return (0);
 	}
 	if (!(ft_strcmp(line, "rra")))
 	{
-		re_rotate_stack_a(stack_a);
+		rra(info);
 		write(1, "A : ", 3);
-        print_list(stack_a);
+		ft_print_stack_a(info);
 		return (0);
 	}
 	if (!(ft_strcmp(line, "rrb")))
 	{
-		re_rotate_stack_b(stack_b);
+		rrb(info);
 		write(1, "B : ", 3);
-        print_list(stack_b);
+		ft_print_stack_b(info);
 		return (0);
-	}	
+	}
 	if (!(ft_strcmp(line, "rrr")))
 	{
-		re_rotate_stack_a_and_stack_b(stack_a, stack_b);
+		rrr(info);
 		write(1, "A : ", 3);
-        print_list(stack_a);
-        write(1, "B : ", 3);
-        print_list(stack_b);
+		ft_print_stack_a(info);
+		write(1, "B : ", 3);
+		ft_print_stack_b(info);
 		return (0);
 	}
 	return (1);

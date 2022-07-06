@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 11:35:36 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/01 19:02:27 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/06 12:43:48 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,13 @@ void	ft_sort_stack_of_three(t_info *info)
 		swap_stack_a(info);
 		reverse_rotate_a(info);
 	}
-	else if ((first > second) && (second < third) && (third < first))
-		rotate_stack_a(info);
 	else if ((first < second) && (second > third) && (third > first))
 	{
 		swap_stack_a(info);
 		rotate_stack_a(info);
 	}
+	else if ((first > second) && (second < third) && (third < first))
+		rotate_stack_a(info);
 	else if ((first > second) && (second < third) && (third > first))
 		swap_stack_a(info);
 	else if ((first < second) && (second > third) && (third < first))

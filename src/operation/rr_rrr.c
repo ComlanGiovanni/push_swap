@@ -6,12 +6,11 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 17:27:54 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/03 23:55:20 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/05 23:28:46 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/pushswap.h"
-
 
 /**
  * @brief 
@@ -51,8 +50,8 @@ void	rr(t_info *info)
  */
 void	rotate_stack_a_and_b(t_info *info)
 {
-    rr(info);
-    write(STDOUT_FILENO, RR_MSG, ft_strlen(RR_MSG));
+	rr(info);
+	write(STDOUT_FILENO, RR_MSG, ft_strlen(RR_MSG));
 }
 
 /**
@@ -93,6 +92,6 @@ void	rrr(t_info *info)
  */
 void	reverse_rotate_stack_a_and_b(t_info *info)
 {
-    rrr(info);
-    write(STDOUT_FILENO, RRR_MSG, ft_strlen(RRR_MSG));
+	rrr(info);
+	write(STDOUT_FILENO, RRR_MSG, ft_strlen(RRR_MSG));
 }

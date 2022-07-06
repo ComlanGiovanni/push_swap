@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 22:37:51 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/04 15:53:49 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/06 00:08:51 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
  * @param argv 
  * @return int 
  */
-int		ft_get_str_size(int argc, char **argv)
+int	ft_get_str_size(int argc, char **argv)
 {
 	int		idx;
 	int		size;
@@ -45,7 +45,7 @@ int		ft_get_str_size(int argc, char **argv)
 			vector++;
 		}
 		if (argv[idx][vector] == '\0')
-			ft_print_error(1);
+			ft_print_error(1);//fct for free  info
 		str_nbr_splitted = ft_split(argv[idx], ' ');
 		size += ft_get_size_of(str_nbr_splitted);
 		ft_free_str(str_nbr_splitted);
@@ -68,7 +68,7 @@ int		ft_get_str_size(int argc, char **argv)
  * @param tab_size 
  * @return int* 
  */
-int		*ft_argv_in_tab(int argc, char **argv, int tab_size)
+int	*ft_argv_in_tab(int argc, char **argv, int tab_size)
 {
 	int		idx;
 	int		tab_idx;
@@ -79,7 +79,7 @@ int		*ft_argv_in_tab(int argc, char **argv, int tab_size)
 	tab_idx = 0;
 	tab_nbr = (int *)malloc(sizeof(int *) * tab_size + 1);
 	if (!tab_nbr)
-		ft_print_error(1);
+		ft_print_error(1);//fct for free   info
 	while (idx < argc)
 	{
 		str_nbr_splitted = ft_split(argv[idx], ' ');
@@ -169,7 +169,7 @@ void	ft_tab_in_info(t_info *info, int *tab_nbr, int tab_size)
  * @param str_nbr_splitted 
  * @return int 
  */
-int		ft_get_size_of(char **str_nbr_splitted)
+int	ft_get_size_of(char **str_nbr_splitted)
 {
 	int	idx;
 

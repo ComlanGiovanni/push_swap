@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 14:00:51 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/04 12:08:47 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/06 12:52:10 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
  * @param stack 
  * @return int 
  */
-int		ft_get_stack_min_nbr(t_stack *stack)
+int	ft_get_stack_min_nbr(t_stack *stack)
 {
 	int	min_nbr;
 
@@ -44,7 +44,7 @@ int		ft_get_stack_min_nbr(t_stack *stack)
  * @param stack 
  * @return int 
  */
-int		ft_get_stack_max_nbr(t_stack *stack)
+int	ft_get_stack_max_nbr(t_stack *stack)
 {
 	int	max_nbr;
 
@@ -60,7 +60,18 @@ int		ft_get_stack_max_nbr(t_stack *stack)
 	return (max_nbr);
 }
 
-int		ft_get_min(int move_for_a, int move_for_b, int idx_in_a, int idx_in_b)
+/**
+ * @brief 
+ * 
+ * 
+ * 
+ * @param move_for_a 
+ * @param move_for_b 
+ * @param idx_in_a 
+ * @param idx_in_b 
+ * @return int 
+ */
+int	ft_get_min(int move_for_a, int move_for_b, int idx_in_a, int idx_in_b)
 {
 	if (move_for_a < 0)
 		move_for_a = move_for_a * -1;
@@ -76,35 +87,54 @@ int		ft_get_min(int move_for_a, int move_for_b, int idx_in_a, int idx_in_b)
 		return (0);
 }
 
+/**
+ * @brief 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * @param info 
+ * @param move_for_a 
+ */
 void	ft_shift_a(t_info *info, int move_for_a)
 {
 	while (move_for_a)
 	{
 		if (move_for_a > 0)
 		{
-            rotate_stack_a(info);
+			rotate_stack_a(info);
 			move_for_a--;
 		}
 		else
 		{
-            reverse_rotate_a(info);
+			reverse_rotate_a(info);
 			move_for_a++;
 		}
 	}
 }
 
+/**
+ * @brief 
+ * 
+ * 
+ * 
+ * 
+ * @param info 
+ * @param move_for_b 
+ */
 void	ft_shift_b(t_info *info, int move_for_b)
 {
 	while (move_for_b)
 	{
 		if (move_for_b > 0)
 		{
-            rotate_stack_b(info);
+			rotate_stack_b(info);
 			move_for_b--;
 		}
 		else
 		{
-            reverse_rotate_b(info);
+			reverse_rotate_b(info);
 			move_for_b++;
 		}
 	}

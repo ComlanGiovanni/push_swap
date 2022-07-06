@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 22:37:51 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/04 18:09:08 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/06 12:40:27 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
  * @param tab_size 
  * @param idx 
  */
-void	ft_check_tab_already_sorted(int *tab_nbr, int tab_size, int idx)
+void	ft_check_tab_sorted(t_info *info, int *tab_nbr, int tab_size, int idx)
 {
 	int	bubble_sort;
 	int	check;
@@ -48,17 +48,17 @@ void	ft_check_tab_already_sorted(int *tab_nbr, int tab_size, int idx)
 			bubble_sort++;
 		}
 		if (tab_nbr[idx] == tab_nbr[idx + 1])
-			ft_print_error(1);
+			ft_free_if_err(1, info, tab_nbr, tab_size);
 		idx++;
 	}
 	if (check == 0)
-		ft_print_error(-1);
+		ft_free_if_err(-1, info, tab_nbr, tab_size);
 }
 
 /**
  * @brief 
  * 
- * We free evry single element in the str
+ * We free every single element in the str
  * and at the end we free the whole str
  * 
  * @param str 
@@ -68,6 +68,8 @@ void	ft_free_str(char **str)
 	int	idx;
 
 	idx = 0;
+	if (str == NULL)
+		return ;
 	while (str[idx])
 	{
 		free(str[idx]);
@@ -76,47 +78,53 @@ void	ft_free_str(char **str)
 	free(str);
 }
 
-
-void	free_info_a(t_info *info)
+/**
+ * @brief 
+ * 
+ * 
+ * 
+ * @param info 
+ * @param tab_size 
+ */
+void	ft_free_a(t_info *info, int tab_size)
 {
 	t_stack	*current;
 
-	if (info == NULL)
-		return ;
-	current = info->top_a;
-	while (info->top_a != NULL)
-	{
-		info->top_a = info->top_a->next;
-		free(current);
-		current = info->top_a->next;
-	}
-	free(info);
-	info = NULL;
-}
-
-
-void	ft_free_a(t_info *info)
-{
 	if (info->top_a == NULL)
 		return ;
-	while (info->size_a)
+	current = info->top_a->next;
+	while (tab_size)
 	{
-		t_stack *current = info->top_a;
-		free(current);
-		info->top_a = info->top_a->next;
-		info->size_a--;
+		free(info->top_a);
+		info->top_a = current;
+		if (tab_size != 1)
+			current = current->next;
+		tab_size--;
 	}
 }
 
-void	ft_free_b(t_info *info)
+/**
+ * @brief 
+ * 
+ * 
+ * 
+ * 
+ * @param info 
+ * @param tab_size 
+ */
+void	ft_free_b(t_info *info, int tab_size)
 {
-	if (info->top_a == NULL)
+	t_stack	*current;
+
+	if (info->top_b == NULL)
 		return ;
-	while (info->size_b)
+	current = info->top_b->next;
+	while (tab_size)
 	{
-		t_stack *current = info->top_b;
-		free(current);
-		info->top_b = info->top_b->next;
-		info->size_b--;
+		free(info->top_b);
+		info->top_b = current;
+		if (tab_size != 1)
+			current = current->next;
+		tab_size--;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 17:27:48 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/01 17:45:01 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/05 23:26:27 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,6 @@ void	ss(t_info *info)
  */
 void	swap_stack_a_and_b(t_info *info)
 {
-    ss(info);
-    write(STDOUT_FILENO, SS_MSG, ft_strlen(SS_MSG));
+	ss(info);
+	write(STDOUT_FILENO, SS_MSG, ft_strlen(SS_MSG));
 }

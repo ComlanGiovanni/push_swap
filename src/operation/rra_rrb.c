@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 11:50:20 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/03 22:54:46 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/05 23:27:37 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	rra(t_info *info)
  */
 void	reverse_rotate_a(t_info *info)
 {
-    rra(info);
+	rra(info);
 	write(STDOUT_FILENO, RRA_MSG, ft_strlen(RRA_MSG));
 }
 
@@ -88,7 +88,7 @@ void	reverse_rotate_a(t_info *info)
  */
 void	rrb(t_info *info)
 {
-    t_stack	*tmp;
+	t_stack	*tmp;
 
 	if (info->size_b < 2)
 		return ;
@@ -110,6 +110,6 @@ void	rrb(t_info *info)
  */
 void	reverse_rotate_b(t_info *info)
 {
-    rrb(info);
+	rrb(info);
 	write(STDOUT_FILENO, RRB_MSG, ft_strlen(RRB_MSG));
 }

@@ -6,72 +6,25 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 19:47:16 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/06/29 11:04:15 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/06 12:06:13 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/checker.h"
+#include "../include/pushswap.h"
 
-void	ft_putchar_fd(char c, int fd)
+int	ft_check_sorted(t_info *info)
 {
-	write(fd, &c, 1);
-}
+	t_stack	*curr;
+	t_stack	*curr_next;
 
-void	ft_putnbr_fd(int n, int fd)
-{
-	if (n == -2147483648)
+	curr = info->top_a->next;
+	curr_next = info->top_a->next->next;
+	while (curr_next != NULL)
 	{
-		write(fd, "-2147483648", 11);
-		return ;
-	}
-	if (n < 0 && n != -2147483648)
-	{
-		ft_putchar_fd('-', fd);
-		n *= -1;
-	}
-	if (n < 10)
-	{
-		ft_putchar_fd(n + '0', fd);
-	}
-	else
-	{
-		ft_putnbr_fd(n / 10, fd);
-		ft_putnbr_fd(n % 10, fd);
-	}
-}
-
-int	print_list(t_list *list)
-{
-	t_node	*node;
-
-	if (list == NULL)
-		return (1);
-	node = list->first;
-	while (node != NULL)
-	{
-		write(1, " [", 3);
-		ft_putnbr_fd(node->value, 1);
-        write(1, "]", 2);
-        write(1, " -> ", 5);
-		node = node->next;
-	}
-    write(1, "NULL\n", 6);
-	return (0);
-}
-
-int	check_sorted(t_list *nbr_list)
-{
-	t_node	*c;
-	t_node	*d;
-
-	c = nbr_list->first;
-	d = nbr_list->first->next;
-	while (d != NULL)
-	{
-		if (c->value < d->value)
+		if (curr->nbr < curr_next->nbr)
 		{
-			c = d;
-			d = d->next;
+			curr = curr_next;
+			curr_next = curr_next->next;
 		}
 		else
 			return (0);
@@ -79,15 +32,16 @@ int	check_sorted(t_list *nbr_list)
 	return (1);
 }
 
-void	print_res_commands(t_list *stack_a, t_list *stack_b)
+void	ft_print_res_commands(t_info *info)
 {
-	if (check_sorted(stack_a))
-		write(2, "OK\n", 7);
+	if (ft_check_sorted(info))
+		write(STDERR_FILENO, BONUS_OK, ft_strlen(BONUS_OK));
 	else
-		write(2, "KO\n", 7);
-
+		write(STDERR_FILENO, BONUS_KO, ft_strlen(BONUS_KO));
+	/*
 	if (stack_a)
 		free_list(stack_a);
 	if (stack_b)
 		free_list(stack_b);
+	*/
 }

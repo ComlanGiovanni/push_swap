@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 22:37:51 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/04 17:35:21 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/06 12:53:42 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,10 @@
 # define RRA_MSG	"rra\n"
 # define RRB_MSG	"rrb\n"
 # define RRR_MSG	"rrr\n"
+# define BONUS_OK	"OK\n"
+# define BONUS_KO	"KO\n"
+# define BUFF_SIZE  (8)
+# define MAX_FD		(1024)
 
 /* Node of a doubly linked list */
 
@@ -37,7 +41,7 @@ typedef struct s_stack
 	int					nbr;
 	struct s_stack		*prev;
 	struct s_stack		*next;
-} t_stack;
+}	t_stack;
 
 typedef struct s_info
 {
@@ -48,8 +52,25 @@ typedef struct s_info
 	struct s_stack		*top_b;
 	struct s_stack		*bottom_a;
 	struct s_stack		*bottom_b;
-} t_info;
+}	t_info;
 
+//../bonus/checker.c
+
+int		ft_commands(t_info *info, char *line);
+
+//../bonus/get_next_line_bonus.c 
+
+int		verify_new_line(char **stack, char **line);
+void	add_heap_to_static(char **s, char *buf);
+int		ft_exit(char **line);
+int		get_next_line(const int fd, char **line);
+
+//../bonus/tools.c
+
+int		ft_check_sorted(t_info *info);
+void	ft_print_res_commands(t_info *info);
+
+//../bonus/
 
 //main.c
 
@@ -95,11 +116,11 @@ void	swap_stack_a_and_b(t_info *info);
 
 //src/parsing/parsing_tools.c
 
-int     ft_get_str_size(int argc, char **argv);
+int		ft_get_str_size(int argc, char **argv);
 int		*ft_argv_in_tab(int argc, char **argv, int tab_size);
 void	ft_nbr_in_tab(int *tab_nbr, int *tab_idx, char **str_nbr_splitted);
 void	ft_tab_in_info(t_info *info, int *tab_nbr, int tab_size);
-int     ft_get_size_of(char **splitted_nbr_str);
+int		ft_get_size_of(char **splitted_nbr_str);
 
 //src/sorting/big_stack_tools.c
 
@@ -109,7 +130,6 @@ int		ft_set_a_location_max(t_info *info);
 int		ft_set_a_location_mid(int number, t_info *info);
 void	ft_shift_a_and_b(t_info *info, int *move_for_a, int *move_for_b);
 
-
 //src/sorting/big_stack.c
 
 void	ft_sort_big_stack(t_info *info);
@@ -118,10 +138,11 @@ void	ft_split_by_three(t_info *info, int pivot_1, int pivot_2);
 void	ft_sort_last_chunk(t_info *info);
 void	ft_get_min_move(t_info *info, int *move_for_a, int *move_for_b);
 
-
 //src/sorting/stack_tools.c
 
 void	ft_sort_stack_of_three(t_info *info);
+void	ft_print_stack_a(t_info *info);
+void	ft_print_stack_b(t_info *info);
 
 //src/sorting/small_stack.c
 
@@ -133,13 +154,14 @@ int		ft_print_error(int error_code);
 t_info	*ft_init_info(void);
 t_stack	*ft_init_stack(void);
 int		ft_atoll_check_max_int(const char *str);
+void	ft_free_if_err(int err_code, t_info *info, int *tab_nbr, int tab_size);
 
 //src/tools/linked_list_tools.c
 
-void	ft_check_tab_already_sorted(int *tab_nbr, int tab_size, int idx);
+void	ft_check_tab_sorted(t_info *info, int *tab_nbr, int tab_size, int idx);
 void	ft_free_str(char **str);
-void	ft_free_a(t_info *info);
-void	ft_free_b(t_info *info);
+void	ft_free_a(t_info *info, int tab_size);
+void	ft_free_b(t_info *info, int tab_size);
 
 //src/tools/sorting_tools.c
 

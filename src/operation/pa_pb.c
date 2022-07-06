@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 11:50:14 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/01 17:12:15 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/05 23:25:15 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	pa(t_info *info)
  */
 void	push_stack_a(t_info *info)
 {
-    pa(info);
+	pa(info);
 	write(STDOUT_FILENO, PA_MSG, ft_strlen(PA_MSG));
 }
 
@@ -130,6 +130,6 @@ void	pb(t_info *info)
  */
 void	push_stack_b(t_info *info)
 {
-    pb(info);
+	pb(info);
 	write(STDOUT_FILENO, PB_MSG, ft_strlen(PB_MSG));
 }

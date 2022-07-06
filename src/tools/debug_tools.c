@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 11:24:49 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/04 17:48:07 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/06 00:11:14 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
  * @param error_code 
  * @return int 
  */
-int		ft_print_error(int error_code)
+int	ft_print_error(int error_code)
 {
 	if (error_code >= 1)
 		write(STDERR_FILENO, ERROR_MSG, ft_strlen(ERROR_MSG));
@@ -51,8 +51,8 @@ int		ft_print_error(int error_code)
  */
 t_info	*ft_init_info(void)
 {
-	t_stack 	*malloc_a;
-	t_info		*malloc_info;
+	t_stack	*malloc_a;
+	t_info	*malloc_info;
 
 	malloc_info = NULL;
 	malloc_info = (t_info *)malloc(sizeof(t_info));
@@ -86,7 +86,6 @@ t_stack	*ft_init_stack(void)
 	return (malloc_a);
 }
 
-
 /**
  * @brief 
  * 
@@ -99,7 +98,7 @@ t_stack	*ft_init_stack(void)
  * @param str 
  * @return int 
  */
-int		ft_atoll_check_max_int(const char *str)
+int	ft_atoll_check_max_int(const char *str)
 {
 	long long	res;
 	int			sign;
@@ -123,6 +122,25 @@ int		ft_atoll_check_max_int(const char *str)
 	res = res * sign;
 	if (*str != '\0' || len_res > 10
 		|| res > 2147483647 || res < -2147483648)
-		ft_print_error(1);
+		ft_print_error(1);//free fct str splited info
 	return ((int)res);
+}
+
+/**
+ * @brief 
+ * 
+ * in fact you realy dont need to send tab_size you can
+ * strlen in when need
+ * 
+ * @param error_code 
+ * @param info 
+ * @param tab_nbr 
+ * @param tab_size 
+ */
+void	ft_free_if_err(int err_code, t_info *info, int *tab_nbr, int tab_size)
+{
+	ft_free_a(info, tab_size);
+	free(tab_nbr);
+	free(info);
+	ft_print_error(err_code);
 }

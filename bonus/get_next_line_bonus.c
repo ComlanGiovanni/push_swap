@@ -6,11 +6,11 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 14:55:35 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/06/28 21:36:58 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/05 23:46:55 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/checker.h"
+#include "../include/pushswap.h"
 
 int	verify_new_line(char **stack, char **line)
 {

@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 22:37:51 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/04 18:10:40 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/06 11:57:22 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,20 @@ int	main(int argc, char **argv)
 	tab_size = ft_get_str_size(argc, argv);
 	tab_nbr = ft_argv_in_tab(argc, argv, tab_size);
 	ft_tab_in_info(info, tab_nbr, tab_size);
-	ft_check_tab_already_sorted(tab_nbr, tab_size, 0);
+	ft_check_tab_sorted(info, tab_nbr, tab_size, 0);
 	info->tab = tab_nbr;
 	ft_sort_stack(info);
-	ft_free_a(info);
-	ft_free_b(info);
-	free(info);
+	ft_free_a(info, tab_size);
 	free(tab_nbr);
+	free(info);
 	return (EXIT_SUCCESS);
 }
+
+/*
+
+comment for ft_free_a and b
+
+https://www.calculatorsoup.com
+/calculators/statistics/random-number-generator.php
+
+*/

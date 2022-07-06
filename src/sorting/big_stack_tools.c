@@ -6,13 +6,22 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 14:55:57 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/04 12:12:52 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/06 12:42:30 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/pushswap.h"
 
-int		ft_set_location_in_a(int number, t_info *info)
+/**
+ * @brief 
+ * 
+ * 
+ * 
+ * @param number 
+ * @param info 
+ * @return int 
+ */
+int	ft_set_location_in_a(int number, t_info *info)
 {
 	int	location;
 
@@ -25,12 +34,20 @@ int		ft_set_location_in_a(int number, t_info *info)
 	return (location);
 }
 
-int		ft_set_a_location_min(t_info *info)
+/**
+ * @brief 
+ * 
+ * 
+ * 
+ * @param info 
+ * @return int 
+ */
+int	ft_set_a_location_min(t_info *info)
 {
 	int			location;
 	int			idx;
 	int			tmp;
-	t_stack     *tmp_stack_a;
+	t_stack		*tmp_stack_a;
 
 	location = 0;
 	tmp = 0;
@@ -49,12 +66,20 @@ int		ft_set_a_location_min(t_info *info)
 	return (location);
 }
 
-int		ft_set_a_location_max(t_info *info)
+/**
+ * @brief 
+ * 
+ * 
+ * 
+ * @param info 
+ * @return int 
+ */
+int	ft_set_a_location_max(t_info *info)
 {
 	int			location;
 	int			idx;
 	int			tmp;
-	t_stack     *tmp_stack_a;
+	t_stack		*tmp_stack_a;
 
 	location = 0;
 	tmp = 0;
@@ -74,9 +99,18 @@ int		ft_set_a_location_max(t_info *info)
 	return (location);
 }
 
-int		ft_set_a_location_mid(int number, t_info *info)
+/**
+ * @brief 
+ * 
+ * 
+ * 
+ * @param number 
+ * @param info 
+ * @return int 
+ */
+int	ft_set_a_location_mid(int number, t_info *info)
 {
-	t_stack     *tmp_stack_a;
+	t_stack		*tmp_stack_a;
 	int			location;
 
 	tmp_stack_a = info->top_a;
@@ -93,6 +127,15 @@ int		ft_set_a_location_mid(int number, t_info *info)
 	return (location);
 }
 
+/**
+ * @brief 
+ * 
+ * 
+ * 
+ * @param info 
+ * @param move_for_a 
+ * @param move_for_b 
+ */
 void	ft_shift_a_and_b(t_info *info, int *move_for_a, int *move_for_b)
 {
 	while (*move_for_a && *move_for_b && (*move_for_a > 0 && *move_for_b > 0))

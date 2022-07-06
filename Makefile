@@ -6,10 +6,9 @@
 #    By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/20 14:04:12 by gcomlan           #+#    #+#              #
-#    Updated: 2022/07/04 18:12:06 by gcomlan          ###   ########.fr        #
+#    Updated: 2022/07/06 13:11:24 by gcomlan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
 
 GCC = gcc -Wall -Wextra -Werror -g
 
@@ -41,6 +40,21 @@ SRC		=	main.c \
 SRCS_BONUS	=   ./bonus/main.c \
             	./bonus/checker.c \
 				./bonus/tools.c \
+				./bonus/get_next_line_bonus.c \
+				./src/operation/pa_pb.c \
+				./src/operation/ra_rb.c \
+				./src/operation/rr_rrr.c \
+				./src/operation/rra_rrb.c \
+				./src/operation/sa_sb.c \
+				./src/operation/ss.c \
+				./src/parsing/parsing_tools.c \
+				./src/sorting/big_stack_tools.c \
+				./src/sorting/big_stack.c \
+				./src/sorting/small_stack.c \
+				./src/sorting/stack_tools.c \
+				./src/tools/debug_tools.c \
+				./src/tools/linked_list_tools.c \
+				./src/tools/sorting_tools.c \
 
 #Obj
 SRC_OBJS		=	$(SRC:.c=.o)
@@ -92,19 +106,24 @@ $(NAME):
 	make -C ./lib/
 	cp ./lib/libpushswap.a .
 	@$(PUSH_SWAP_COMP)
-	gcc $(SRC) -L. $(LIB_NAME) -o $(NAME)
+	$(GCC) $(SRC) -L. $(LIB_NAME) -o $(NAME)
 	@$(PUSH_SWAP_READY)
 
 bonus: $(OBJS_BONUS)
 	make -C ./lib/
 	cp ./lib/libpushswap.a ./bonus
-	$(GCC) $(SRCS_BONUS) -L. $(LIB_NAME) ./bonus/$(LIB_NAME) -o $(CHECKER_NAME)
+	$(GCC) $(SRCS_BONUS) -L. ./bonus/$(LIB_NAME) -o $(CHECKER_NAME)
 	@$(BONUS_READY)
 
 clean :
 	rm -f *.o
 	rm -f *~
 	rm -f *#
+	rm -f ./src/*.o
+	$(RM) ./src/operation/*.o
+	$(RM) ./src/parsing/*.o
+	$(RM) ./src/sorting/*.o
+	$(RM) ./src/tools/*.o
 	$(RM) ./bonus/*.o
 	make -C ./lib/ clean
 	@$(CLEANED)

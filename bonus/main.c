@@ -6,68 +6,72 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 19:29:46 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/06/29 11:06:13 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/06 12:58:09 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/checker.h"
+#include "../include/pushswap.h"
 
-t_list	*init_list()
-{
-	t_node	*node;
-	t_list	*list;
-
-	list = malloc(sizeof(*list));
-	node = malloc(sizeof(*node));
-	if (list == NULL || node == NULL)
-	{
-		write(2, ERROR_MSG, 7);
-		return (NULL);
-	}
-	//node->value = nbr;
-	//node->next = NULL;
-	list->first = node;
-	list->nbr_elm = 0;
-	return (list);
-}
-
+/**
+ * @brief 
+ * 
+ * TODO
+ * fct for while
+ *	//replace 2 by variable strlen tooe
+ * 
+ * @param argc 
+ * @param argv 
+ * @return int 
+ */
 int	main(int argc, char **argv)
 {
-    char	*line;
-    t_list	*stack_a;
-    t_list	*stack_b;
-
-	stack_a = (t_list *)malloc(sizeof(t_list));
-	stack_b = (t_list *)malloc(sizeof(t_list));
-
-	stack_a = NULL;
-	stack_b = init_list();
+	char		*line;
+	int			tab_size;
+	int			*tab_nbr;
+	t_info		*info;
 
 	if (argc < 2)
-		return (0);
-    if (argc > 2)
-	{
-        stack_a = parsing_arg(argc, argv);
-	}
-
-    if (stack_a == NULL)
-	{
-		write(2, ERROR_MSG, 7);
-		return (-1);
-	}
-
+		ft_print_error(-1);
+	tab_size = 0;
+	info = ft_init_info();
+	tab_size = ft_get_str_size(argc, argv);
+	tab_nbr = ft_argv_in_tab(argc, argv, tab_size);
+	ft_tab_in_info(info, tab_nbr, tab_size);
+	ft_check_tab_sorted(info, tab_nbr, tab_size, 0);
+	info->tab = tab_nbr;
 	while (get_next_line(0, &line))
 	{
-		if (commands(stack_a, stack_b, line))
+		if (ft_commands(info, line))
 		{
-			write(2, ERROR_MSG, 7);
-			if(check_sorted(stack_a) && (stack_b == NULL)) 
-				print_res_commands(stack_a, stack_b);
+			write(2, ERROR_MSG, ft_strlen(ERROR_MSG));
+			if (ft_check_sorted(info))
+				ft_print_res_commands(info);
 			return (-1);
 		}
 		free(line);
 	}
-
-	//print_res_commands(stack_a, stack_b);
 	return (0);
 }
+
+/*
+
+let pb 2*
+
+9 8 3 4 2
+33 44 22	35 26
+22 33 44 	35 26		1 OU 2 MOVE
+
+pa 
+
+O 	-	-	- 	O
+O 	-	- 	-	O
+O	-	O	- 	O
+O	-	O	O	O
+O	-	O	O	O
+
+
+int ft_check_sorted(t_info info)
+{
+	
+}
+*/

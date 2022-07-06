@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 14:57:37 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/02 00:33:01 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/06 12:51:41 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,42 @@ void	ft_sort_stack(t_info *info)
 	}
 	else if (info->size_a == 3)
 		ft_sort_stack_of_three(info);
-    else
+	else
 		ft_sort_big_stack(info);
+}
+
+void	ft_print_stack_a(t_info *info)
+{
+	t_stack	*current;
+
+	if (info == NULL && info->top_a == NULL )
+		return ;
+	current = info->top_a->next;
+	while (current != NULL)
+	{
+		write(1, " [", 3);
+		ft_putnbr_fd(current->nbr, 1);
+		write(1, "]", 2);
+		write(1, " -> ", 5);
+		current = current->next;
+	}
+	write(1, "NULL\n", 6);
+}
+
+void	ft_print_stack_b(t_info *info)
+{
+	t_stack	*current;
+
+	if (info == NULL && info->top_b == NULL )
+		return ;
+	current = info->top_b->next;
+	while (current != NULL)
+	{
+		write(1, " [", 3);
+		ft_putnbr_fd(current->nbr, 1);
+		write(1, "]", 2);
+		write(1, " -> ", 5);
+		current = current->next;
+	}
+	write(1, "NULL\n", 6);
 }
