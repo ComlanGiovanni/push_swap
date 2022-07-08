@@ -35,6 +35,12 @@ Any advise for common problems or issues.
 Read the code and the comment
 ```
 
+### Improve and bug
+
+* Bonus
+* More readable comment
+* Five move optimization
+* Fixing norme bonus [Norme KO Bonus : 8 juil 2020]
 ## Authors
 
 Contributors names and contact info
@@ -56,4 +62,6 @@ This project is licensed under the do what the fuck you want License - see the L
 ## Acknowledgments
 
 Inspiration, code snippets, etc.
-* [awesome-readme](https://github.com/matiassingers/awesome-readme)
+* [Leo Fu](https://medium.com/nerd-for-tech/push-swap-tutorial-fa746e6aba1e)
+* [Jamie Dawson](https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a)
+* [o-reao push swap visualizer](https://github.com/o-reo/push_swap_visualizer)
