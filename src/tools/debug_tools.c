@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 11:24:49 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/06 00:11:14 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/08 01:02:57 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,10 +95,18 @@ t_stack	*ft_init_stack(void)
  * 
  * [check sign check space transform in digit]
  * 
+ * int	ft_check_int(t_info *info, int *tab_nbr, char **nbr_split, 
+ * const char *str)
+ * int	ft_atoll_check_max_int(t_info *info, int *tab_nbr,  
+ * char **str_nbr_splitted, const char *str);
+ * 
+ * ft_check_int		ft_atoll_check_max_int
+ * split 		str_nbr_splitted
+ * 
  * @param str 
  * @return int 
  */
-int	ft_atoll_check_max_int(const char *str)
+int	ft_check_int(t_info *info, int *tab_nbr, char **split, const char *str)
 {
 	long long	res;
 	int			sign;
@@ -122,7 +130,7 @@ int	ft_atoll_check_max_int(const char *str)
 	res = res * sign;
 	if (*str != '\0' || len_res > 10
 		|| res > 2147483647 || res < -2147483648)
-		ft_print_error(1);//free fct str splited info
+		ft_free_maxint(1, info, tab_nbr, split);
 	return ((int)res);
 }
 
@@ -131,6 +139,13 @@ int	ft_atoll_check_max_int(const char *str)
  * 
  * in fact you realy dont need to send tab_size you can
  * strlen in when need
+ * 
+ * so this fct its the fucking leaks debugging
+ * 
+ * we free the stack A of all the number
+ * we free the tab of nbr that we malloc in the main
+ * we free the big stack who got stack A B we only free
+ * it at the end to avoid still reachable
  * 
  * @param error_code 
  * @param info 

@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 22:37:51 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/06 00:08:51 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/08 00:25:10 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,11 @@
  * we free the str en return the size - 1(enf of tab)
  * we need it to malloc proprely in the next fct
  * 
- * 
  * @param argc 
  * @param argv 
  * @return int 
  */
-int	ft_get_str_size(int argc, char **argv)
+int	ft_get_str_size(t_info *info, int argc, char **argv)
 {
 	int		idx;
 	int		size;
@@ -45,7 +44,7 @@ int	ft_get_str_size(int argc, char **argv)
 			vector++;
 		}
 		if (argv[idx][vector] == '\0')
-			ft_print_error(1);//fct for free  info
+			ft_free_no_dig(1, info);
 		str_nbr_splitted = ft_split(argv[idx], ' ');
 		size += ft_get_size_of(str_nbr_splitted);
 		ft_free_str(str_nbr_splitted);
@@ -68,7 +67,7 @@ int	ft_get_str_size(int argc, char **argv)
  * @param tab_size 
  * @return int* 
  */
-int	*ft_argv_in_tab(int argc, char **argv, int tab_size)
+int	*ft_argv_in_tab(t_info *info, int argc, char **argv, int tab_size)
 {
 	int		idx;
 	int		tab_idx;
@@ -79,11 +78,11 @@ int	*ft_argv_in_tab(int argc, char **argv, int tab_size)
 	tab_idx = 0;
 	tab_nbr = (int *)malloc(sizeof(int *) * tab_size + 1);
 	if (!tab_nbr)
-		ft_print_error(1);//fct for free   info
+		ft_print_error(1);
 	while (idx < argc)
 	{
 		str_nbr_splitted = ft_split(argv[idx], ' ');
-		ft_nbr_in_tab(tab_nbr, &tab_idx, str_nbr_splitted);
+		ft_nbr_in_tab(info, tab_nbr, &tab_idx, str_nbr_splitted);
 		ft_free_str(str_nbr_splitted);
 		idx++;
 	}
@@ -100,19 +99,27 @@ int	*ft_argv_in_tab(int argc, char **argv, int tab_size)
  * in param, we need it to put endtab after
  * fiilling the tab
  * 
+ * void	ft_nbr_in_tab(t_info *info, int *tab_nbr,
+ * int *tab_idx, char **str_nbr_splitted)
+ * 
+ * void	ft_nbr_in_tab(t_info *info, int *tab_nbr, 
+ * int *tab_idx, char **split)
+ * 
+ * str_nbr_splitted		str
+ * 
  * @param tab_nbr 
  * @param tab_idx 
  * @param str_nbr_splitted 
  */
-void	ft_nbr_in_tab(int *tab_nbr, int *tab_idx, char **str_nbr_splitted)
+void	ft_nbr_in_tab(t_info *info, int *tab_nbr, int *tab_idx, char **split)
 {
 	int	tmp;
 	int	idx;
 
 	idx = 0;
-	while (str_nbr_splitted[idx])
+	while (split[idx])
 	{
-		tmp = ft_atoll_check_max_int(str_nbr_splitted[idx]);
+		tmp = ft_check_int(info, tab_nbr, split, split[idx]);
 		tab_nbr[*tab_idx] = tmp;
 		(*tab_idx)++;
 		idx++;

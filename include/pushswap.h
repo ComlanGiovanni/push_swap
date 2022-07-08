@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 22:37:51 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/06 12:53:42 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/08 01:01:33 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,9 +116,9 @@ void	swap_stack_a_and_b(t_info *info);
 
 //src/parsing/parsing_tools.c
 
-int		ft_get_str_size(int argc, char **argv);
-int		*ft_argv_in_tab(int argc, char **argv, int tab_size);
-void	ft_nbr_in_tab(int *tab_nbr, int *tab_idx, char **str_nbr_splitted);
+int		ft_get_str_size(t_info *info, int argc, char **argv);
+int		*ft_argv_in_tab(t_info *info, int argc, char **argv, int tab_size);
+void	ft_nbr_in_tab(t_info *info, int *tab_nbr, int *tab_idx, char **split);
 void	ft_tab_in_info(t_info *info, int *tab_nbr, int tab_size);
 int		ft_get_size_of(char **splitted_nbr_str);
 
@@ -143,6 +143,8 @@ void	ft_get_min_move(t_info *info, int *move_for_a, int *move_for_b);
 void	ft_sort_stack_of_three(t_info *info);
 void	ft_print_stack_a(t_info *info);
 void	ft_print_stack_b(t_info *info);
+void	ft_free_maxint(int err_code, t_info *info, int *tab_nbr, char **split);
+void	ft_free_no_dig(int err_code, t_info *info);
 
 //src/sorting/small_stack.c
 
@@ -153,7 +155,7 @@ void	ft_sort_stack(t_info *info);
 int		ft_print_error(int error_code);
 t_info	*ft_init_info(void);
 t_stack	*ft_init_stack(void);
-int		ft_atoll_check_max_int(const char *str);
+int		ft_check_int(t_info *info, int *tab_nbr, char **split, const char *str);
 void	ft_free_if_err(int err_code, t_info *info, int *tab_nbr, int tab_size);
 
 //src/tools/linked_list_tools.c

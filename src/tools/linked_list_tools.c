@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 22:37:51 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/06 12:40:27 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/06 20:24:23 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /**
  * @brief 
  * 
- * we bublle sort to check and alors check for doublon
+ * we bubble sort to check and also check for doublon
  * we loop by decreasing by the size and also loop
  * inside it by decreasing the size
  * then swap or the bubble sort
@@ -81,7 +81,13 @@ void	ft_free_str(char **str)
 /**
  * @brief 
  * 
+ * Omg comment after 1 day i am weak atm
  * 
+ * secure free if NULL return
+ * we save the next node elem
+ * and free the current node while
+ * looping by the size of the tab
+ * only if we are not in the last node
  * 
  * @param info 
  * @param tab_size 
@@ -106,8 +112,13 @@ void	ft_free_a(t_info *info, int tab_size)
 /**
  * @brief 
  * 
+ * Omg comment after 1 day i am weak atm
  * 
- * 
+ * secure free if NULL return
+ * we save the next node elem
+ * and free the current node while
+ * looping by the size of the tab
+ * only if we are not in the last node
  * 
  * @param info 
  * @param tab_size 

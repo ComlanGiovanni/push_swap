@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 17:45:56 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/06 12:43:00 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/06 23:17:25 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,14 @@
  * @brief 
  * 
  * 
+ * we push everything in B until we have 2 or 3 then sort it
+ * pushing in B its by 2 pivot
  * 
+ * if < piv1(1 tier) push in b and put in down (so stay down)chunk
+ * if < piv2(2 tier) push in b (so stay in top)chunk
+ * else we put in at the bottom of A, (evrything > piv1 piv2)
+ * 
+ *
  * @param info 
  */
 void	ft_sort_big_stack(t_info *info)
@@ -120,7 +127,11 @@ void	ft_split_by_three(t_info *info, int pivot_1, int pivot_2)
 /**
  * @brief 
  * 
- * 
+ * we found the place of the min nbr
+ * whe roate or reverse in founction of the 
+ * pos of the min number
+ * then loop if untill 0 so loc 0
+ * -- ++ for evry move
  * 
  * 
  * @param info 
@@ -148,7 +159,12 @@ void	ft_sort_last_chunk(t_info *info)
 /**
  * @brief 
  * 
- * 
+ * to get the min move we get the location
+ * of the current number 
+ * then we check it the idx loc in a is > at
+ * sizeb / 2 then we put it in neg and by the sizeb
+ * - the location in b
+ * then change the move for move_for_ A B
  * 
  * @param info 
  * @param move_for_a 

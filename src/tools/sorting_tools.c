@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 14:00:51 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/06 12:52:10 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/06 23:00:35 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 /**
  * @brief 
  * 
- * get the minimum number of a stack
+ * get the minimum number
+ * of a stack
  * and return it
  * 
  * @param stack 
@@ -63,7 +64,8 @@ int	ft_get_stack_max_nbr(t_stack *stack)
 /**
  * @brief 
  * 
- * 
+ * if the move is negatif set it at pos
+ * if we get the min move we return 1
  * 
  * @param move_for_a 
  * @param move_for_b 
@@ -90,9 +92,20 @@ int	ft_get_min(int move_for_a, int move_for_b, int idx_in_a, int idx_in_b)
 /**
  * @brief 
  * 
+ * if the move for the stack a is > 0
+ * we simply rotate else we reverse
  * 
+ * its more like a cypher
  * 
+ * + move_for_a up
+ * - move_for_b down
  * 
+ * when we do the move we
+ * decrease of increase move_for_a
+ * 
+ * do this while move_a ! = O
+ * 
+ * witch mean no move
  * 
  * @param info 
  * @param move_for_a 
@@ -117,11 +130,23 @@ void	ft_shift_a(t_info *info, int move_for_a)
 /**
  * @brief 
  * 
+ * if the move for the stack a is > 0
+ * we simply rotate else we reverse
  * 
+ * its more like a cypher
  * 
+ * + move_for_a up
+ * - move_for_b down
+ * 
+ * when we do the move we
+ * decrease of increase move_for_a
+ * 
+ * do this while move_a ! = O
+ * 
+ * witch mean no move
  * 
  * @param info 
- * @param move_for_b 
+ * @param move_for_a 
  */
 void	ft_shift_b(t_info *info, int move_for_b)
 {

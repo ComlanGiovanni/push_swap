@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 14:55:57 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/06 12:42:30 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/06 22:54:20 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,10 @@
 /**
  * @brief 
  * 
+ * if the number is less than the min nbr in stack A
+ * we set location min
  * 
+ * else for > max number
  * 
  * @param number 
  * @param info 
@@ -37,6 +40,14 @@ int	ft_set_location_in_a(int number, t_info *info)
 /**
  * @brief 
  * 
+ * we create a stack A tmp 
+ * we loop in the stack and look for
+ * the pos of min nbr in the stack a
+ * we get out of the loop if we found
+ * the pose with tmp, 
+ * if the pos is >= size/2 we
+ * tranform the location by a negativ
+ * nbr (size - loc) * -1
  * 
  * 
  * @param info 
@@ -69,6 +80,14 @@ int	ft_set_a_location_min(t_info *info)
 /**
  * @brief 
  * 
+ * we create a stack A tmp 
+ * we loop in the stack and look for
+ * the pos of min nbr in the stack a
+ * we get out of the loop if we found
+ * the pose with tmp, 
+ * if the pos is >= size/2 we
+ * tranform the location by a negativ
+ * nbr (size - loc) * -1
  * 
  * 
  * @param info 
@@ -102,9 +121,19 @@ int	ft_set_a_location_max(t_info *info)
 /**
  * @brief 
  * 
+ * we create a stack A tmp 
+ * we loop in the stack and look for
+ * the pos of min nbr in the stack a
+ * we get out of the loop if we found
+ * the pose with tmp, 
+ * 
+ * same as max and min but in the middle lol
+ * 
+ * if the pos is >= size/2 we
+ * tranform the location by a negativ
+ * nbr (size - loc) * -1
  * 
  * 
- * @param number 
  * @param info 
  * @return int 
  */

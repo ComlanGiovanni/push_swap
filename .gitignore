@@ -50,3 +50,15 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+
+# push swap
+
+.vscode/
+.DS_Store
+a.out
+*.json
+.vscode/configurationCache.log
+*.o
+ib/libpushswap.a
+push_swap.dSYM
