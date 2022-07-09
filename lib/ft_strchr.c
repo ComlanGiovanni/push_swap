@@ -1,46 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/10 14:21:08 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/05/25 23:01:20 by gcomlan          ###   ########.fr       */
+/*   Created: 2022/07/09 23:39:25 by gcomlan           #+#    #+#             */
+/*   Updated: 2022/07/09 23:41:25 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlen_1(char *str)
+char	*ft_strchr(const char *s, int c)
 {
-	int	size;
-
-	size = 0;
-	while (str[size] != '\0')
-	{
-		size++;
-	}
-	return (size);
-}
-
-char	*ft_strdup(const char *s1)
-{
-	int		idx;
-	char	*dest;
+	size_t	idx;
+	char	str;
 
 	idx = 0;
-	dest = (char *)malloc(ft_strlen_1((char *)s1) * sizeof(char) + 1);
-	if (dest)
-	{
-		while (s1[idx] != '\0')
-		{
-			dest[idx] = s1[idx];
-			idx++;
-		}
-		dest[idx] = '\0';
-		return (dest);
-	}
-	else
-		return (NULL);
+	str = c;
+	while (s[idx] && s[idx] != str)
+		idx++;
+	if (s[idx] == str)
+		return ((char *)&s[idx]);
+	return (NULL);
 }

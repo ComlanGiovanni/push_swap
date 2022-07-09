@@ -6,7 +6,7 @@
 #    By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/19 08:46:58 by gcomlan           #+#    #+#              #
-#    Updated: 2022/07/06 11:53:45 by gcomlan          ###   ########.fr        #
+#    Updated: 2022/07/09 23:43:11 by gcomlan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,8 @@ SRC =  	ft_atoi.c \
 		ft_putchar.c \
 		ft_strcmp.c \
 		ft_isspace.c \
-		ft_putnbr.c
+		ft_putnbr.c \
+		ft_strchr.c
 
 BLACK			=	\033[0;30m
 RED				=	\033[0;31m

@@ -6,7 +6,7 @@
 #    By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/20 14:04:12 by gcomlan           #+#    #+#              #
-#    Updated: 2022/07/06 13:11:24 by gcomlan          ###   ########.fr        #
+#    Updated: 2022/07/10 00:04:22 by gcomlan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,23 +38,15 @@ SRC		=	main.c \
 			./src/tools/sorting_tools.c
 
 SRCS_BONUS	=   ./bonus/main.c \
-            	./bonus/checker.c \
+				./bonus/checker.c \
+				./bonus/free.c \
 				./bonus/tools.c \
-				./bonus/get_next_line_bonus.c \
-				./src/operation/pa_pb.c \
-				./src/operation/ra_rb.c \
-				./src/operation/rr_rrr.c \
-				./src/operation/rra_rrb.c \
-				./src/operation/sa_sb.c \
-				./src/operation/ss.c \
-				./src/parsing/parsing_tools.c \
-				./src/sorting/big_stack_tools.c \
-				./src/sorting/big_stack.c \
-				./src/sorting/small_stack.c \
-				./src/sorting/stack_tools.c \
-				./src/tools/debug_tools.c \
-				./src/tools/linked_list_tools.c \
-				./src/tools/sorting_tools.c \
+				./bonus/move/checker_push.c \
+				./bonus/move/checker_reverse.c \
+				./bonus/move/checker_rotate.c \
+				./bonus/move/checker_swap.c \
+				./bonus/move/move_tools.c \
+				./bonus/gnl/get_next_line.c
 
 #Obj
 SRC_OBJS		=	$(SRC:.c=.o)
@@ -119,12 +111,9 @@ clean :
 	rm -f *.o
 	rm -f *~
 	rm -f *#
-	rm -f ./src/*.o
-	$(RM) ./src/operation/*.o
-	$(RM) ./src/parsing/*.o
-	$(RM) ./src/sorting/*.o
-	$(RM) ./src/tools/*.o
 	$(RM) ./bonus/*.o
+	$(RM) ./bonus/gnl/*.o
+	$(RM) ./bonus/move/*.o
 	make -C ./lib/ clean
 	@$(CLEANED)
 

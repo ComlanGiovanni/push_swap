@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 22:37:51 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/08 01:01:33 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/09 03:56:47 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,6 @@
 # define RRA_MSG	"rra\n"
 # define RRB_MSG	"rrb\n"
 # define RRR_MSG	"rrr\n"
-# define BONUS_OK	"OK\n"
-# define BONUS_KO	"KO\n"
-# define BUFF_SIZE  (8)
-# define MAX_FD		(1024)
 
 /* Node of a doubly linked list */
 
@@ -53,24 +49,6 @@ typedef struct s_info
 	struct s_stack		*bottom_a;
 	struct s_stack		*bottom_b;
 }	t_info;
-
-//../bonus/checker.c
-
-int		ft_commands(t_info *info, char *line);
-
-//../bonus/get_next_line_bonus.c 
-
-int		verify_new_line(char **stack, char **line);
-void	add_heap_to_static(char **s, char *buf);
-int		ft_exit(char **line);
-int		get_next_line(const int fd, char **line);
-
-//../bonus/tools.c
-
-int		ft_check_sorted(t_info *info);
-void	ft_print_res_commands(t_info *info);
-
-//../bonus/
 
 //main.c
 

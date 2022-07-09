@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 17:27:54 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/05 23:28:46 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/08 16:52:32 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	rr(t_info *info)
 	info->bottom_b->next = tmp;
 	tmp->prev = info->bottom_b;
 	info->bottom_b = tmp;
-	info->bottom_a->next = NULL;
+	info->bottom_b->next = NULL;
 }
 
 /**

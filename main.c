@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 22:37:51 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/07 23:12:48 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/10 00:08:29 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,12 +63,33 @@ int	main(int argc, char **argv)
 }
 
 /*
+Fixed
+pb when A : [9] ->  [-976219616] -> NULL
+wierd beheviour
 
+opti idea rr if ra rb i la suite
+
+ ./push_swap 5 9 6 8 7 4 1 35 25
+ [5] ->  [9] ->  [6] ->  [8] ->  [7] ->  [4] ->  [1] ->  
+ [35] ->  [25] ->  [-1284468192] -> NULL
+
+ if print a b at the end 
+ why ???
+
+ ./push_swap 5 9 6 8 7 4 1 35 25
+ NULL
+ [442552768] ->  [442552736] ->  [442552576] ->  [442552640] ->  
+ [442552704] ->  [442552672] ->  [442552800] ->  [442552832] ->  
+ [442552608] -> NULL
+ 
 comment for ft_free_a and b
 check all free
 and all argument for defense
 if " 43" p 43 problematique do old parsing
 bonus
+
+todo hard code for 5
+and check valgrind
 
 reverse sorted stack A
 
@@ -76,5 +97,4 @@ reverse sorted stack A
 
 https://www.calculatorsoup.com
 /calculators/statistics/random-number-generator.php
-
 */
