@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 17:45:56 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/06 23:17:25 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/10 20:12:41 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@
  * 
  * if < piv1(1 tier) push in b and put in down (so stay down)chunk
  * if < piv2(2 tier) push in b (so stay in top)chunk
- * else we put in at the bottom of A, (evrything > piv1 piv2)
+ * 2 chunk in B and one chunk in A
+ * then we put the rest of A in top of B, (everything > piv1 && piv2)
  * 
  *
  * @param info 
@@ -127,11 +128,18 @@ void	ft_split_by_three(t_info *info, int pivot_1, int pivot_2)
 /**
  * @brief 
  * 
- * we found the place of the min nbr
- * whe roate or reverse in founction of the 
- * pos of the min number
- * then loop if untill 0 so loc 0
- * -- ++ for evry move
+ * we found the place of the min nbr int the stack A
+ * whe rotate or reverse in function of the 
+ * pos of the min number in A
+ * then loop if until 0 so loc 0
+ * -- ++ for every move
+ * 
+ * if for ex the min is sup > 0
+ * which mean the min pos is > at the
+ * len of A / 2 ,,, so we can just rotate
+ * reverse would be dumb because this can cost more than
+ * need,,
+ * 
  * 
  * 
  * @param info 

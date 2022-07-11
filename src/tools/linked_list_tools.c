@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 22:37:51 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/06 20:24:23 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/10 18:21:59 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,19 @@
 /**
  * @brief 
  * 
- * we bubble sort to check and also check for doublon
+ * we bubble sort to sort (to get sort list before sorting with move)
+ * and also check for doublon no 2 2 or 6 6 
  * we loop by decreasing by the size and also loop
- * inside it by decreasing the size
- * then swap or the bubble sort
+ * inside it by decreasing the size cf bubble_sort
+ * 
+ * (((((((just realized that i can radix her too lol)))))))
+ * 
+ * simple swap with a temporary variable only if > 
  * exit if anything was do witch mean nothing get sorted
- * we exit and print error only if we found one doublon
+ * check is for the swap bubble check
+ * exit and print error only if we found one doublon
+ * 
+ * -1 for code error to exit with a print message 25 line norm...
  * 
  * @param tab_nbr 
  * @param tab_size 
@@ -60,6 +67,12 @@ void	ft_check_tab_sorted(t_info *info, int *tab_nbr, int tab_size, int idx)
  * 
  * We free every single element in the str
  * and at the end we free the whole str
+ * 
+ * if there is nothing to free aka NULL
+ * we get ouf no invalid free in valgrind
+ * 
+ * because in split we malloc every elm and the str
+ * we use it to free str_nbr_splitted in ft_get_str_size
  * 
  * @param str 
  */

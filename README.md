@@ -41,6 +41,11 @@ Read the code and the comment
 * More readable comment
 * Five move optimization
 * Fixing norme bonus [Norme KO Bonus : 8 juil 2020]
+* ./push swap 0  because init stack with 0 in it
+* bonus gnl muiple(6 for ex) tab fail
+* ./push 47 25 6" 4 55 6 89 23" 4 65 2 doublon probleme
+* jump dans bonus
+
 ## Authors
 
 Contributors names and contact info

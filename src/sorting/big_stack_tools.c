@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 14:55:57 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/06 22:54:20 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/10 20:27:06 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ int	ft_set_a_location_min(t_info *info)
  * we get out of the loop if we found
  * the pose with tmp, 
  * if the pos is >= size/2 we
- * tranform the location by a negativ
+ * tranform the location by a negative
  * nbr (size - loc) * -1
  * 
  * 
@@ -130,7 +130,7 @@ int	ft_set_a_location_max(t_info *info)
  * same as max and min but in the middle lol
  * 
  * if the pos is >= size/2 we
- * tranform the location by a negativ
+ * tranform the location by a negative
  * nbr (size - loc) * -1
  * 
  * 
@@ -159,7 +159,10 @@ int	ft_set_a_location_mid(int number, t_info *info)
 /**
  * @brief 
  * 
- * 
+ * here we do te move and dont forget to inscre or decres
+ * to set back the stack at the good pos to handle those
+ * elem in stack B, so the shift is to set the stack at the
+ * good position for the push
  * 
  * @param info 
  * @param move_for_a 

@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 03:21:15 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/09 23:56:17 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/10 12:16:11 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ int	ft_free_checker(t_stack_a_b *stack)
  * so we free the stack exit
  * and write error wite a exit failure
  * 
+ * flemme de lentre err ou je sais pas quoi
+ * 
  * @param stack 
  */
 void	ft_free_fail_init(t_stack_a_b *stack)
@@ -52,7 +54,7 @@ void	ft_free_fail_init(t_stack_a_b *stack)
 		if (stack->stack_b.tab)
 			free(stack->stack_b.tab);
 	}
-	write(STDERR_FILENO, ERROR_MSG, ft_strlen(ERROR_MSG));
+	write(STDIN_FILENO, ERROR_MSG, ft_strlen(ERROR_MSG));
 	exit(EXIT_FAILURE);
 }
 

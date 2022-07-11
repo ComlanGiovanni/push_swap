@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 14:57:37 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/08 00:35:22 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/10 18:41:05 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,11 @@
 /**
  * @brief
  * 
+ * for 2 elem
  * we make sure that if the first nbr is > second_nbr
  * we swap_stack_a
- * 
- * we call ft_sort_stack_of_three if 3elem (5 case hard coded)
+ * we call ft_sort_stack_of_three if 3elem (hard code algo)
+ * we could do for 5 but.... 12 is good (5 case hard coded)
  * 
  * @param info 
  */
@@ -109,17 +110,21 @@ void	ft_print_stack_b(t_info *info)
  * @brief 
  * 
  * Copy past comment from ft_free_if_err
- * same vibe just free for spacific case
  * 
- * in fact you realy dont need to send tab_size you can
- * strlen in when need
+ * Same vibe just free for specific case
  * 
- * so this fct its the fucking leaks debugging
+ * In fact you really dont need to
+ * send tab_size you can
+ * strlen in when need lol but i think about it
+ * later idea for refactoring if wanted
  * 
+ * we free the str_splitted in ft_argv_in_tab
  * we free the stack A of all the number
  * we free the tab of nbr that we malloc in the main
  * we free the big stack who got stack A B we only free
  * it at the end to avoid still reachable
+ * 
+ * then print the error message in Standard output
  * 
  * @param error_code 
  * @param info 
@@ -138,17 +143,20 @@ void	ft_free_maxint(int err_code, t_info *info, int *tab_nbr, char **split)
  * @brief 
  * 
  * Copy past comment from ft_free_if_err
- * same vibe just free for spacific case
  * 
- * in fact you realy dont need to send tab_size you can
- * strlen in when need
+ * Same vibe just free for specific case
+ * 
+ * In fact you really dont need to
+ * send tab_size you can
+ * strlen in when need lol but i think about it
+ * later idea for refactoring if wanted
  * 
  * so this fct its the fucking leaks debugging
  * 
- * we free the stack A of all the number
- * we free the tab of nbr that we malloc in the main
- * we free the big stack who got stack A B we only free
- * it at the end to avoid still reachable
+ * we free the stack A of all the number malloc in 
+ * the main ft_init_info();
+ * we free the big stack who got stack A/B
+ * at the end to avoid still reachable valgrind error
  * 
  * @param error_code 
  * @param info 

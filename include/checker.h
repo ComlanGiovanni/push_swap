@@ -6,14 +6,13 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 02:12:03 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/09 23:57:02 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/10 17:33:06 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHECKER_H
 # define CHECKER_H
 
-# include <limits.h>
 # include "../lib/libft.h"
 
 # define ERROR_MSG			"Error\n"

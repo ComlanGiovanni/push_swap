@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 11:24:49 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/08 01:02:57 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/10 17:40:35 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,15 @@
 /**
  * @brief 
  * 
- * If the error value is >= 1 print Error in standard error
- * else 0 -1 etc just exit the code
+ * If the error value is >= 1
+ * 	print Error in standard error
+ * else 0 -1 etc
+ * 	just exit the code
  * 
  * EXIT_SUCCESS = 0
  * EXIT_FAILURE = 1;
  *
- * STDIN_FILENO    Standard isignut value, stdin. Its value is 0.
+ * STDIN_FILENO    Standard input value, stdin. Its value is 0.
  * STDOUT_FILENO   Standard output value, stdout. Its value is 1.
  * STDERR_FILENO   Standard error value, stderr. Its value is 2.
  * 
@@ -39,13 +41,17 @@ int	ft_print_error(int error_code)
 /**
  * @brief
  * 
- * We iniatiliazed a malloc info stuct 
+ * We initialized a malloc info stuct 
  * and put a malloc stack a in it
  * the size is 0 the nbr is 0;
+ * 
  * a = [NULL]-0-[NULL]
+ * 
  * prev and next is NULL
- * top and bottom equal a because
+ * top and bottom equal malloc_a because
  * There is nothing in it (not more than 1)
+ * 
+ * we only initialized stack A
  * 
  * @return t_info* 
  */
@@ -59,17 +65,18 @@ t_info	*ft_init_info(void)
 	malloc_a = ft_init_stack();
 	malloc_info->tab = NULL;
 	malloc_info->size_a = 0;
+	malloc_info->size_b = 0;
 	malloc_info->top_a = malloc_a;
 	malloc_info->bottom_a = malloc_a;
-	malloc_info->size_b = 0;
 	return (malloc_info);
 }
 
 /**
  * @brief 
  * 
- * We initialiazed a struc stack aka a at 0
+ * We initialized a struct stack aka A at 0
  * and malloc it with nbr 0 and prev next NULL
+ * 
  * a = [NULL]-0-[NULL]
  * 
  * @return t_stack* 
@@ -89,19 +96,19 @@ t_stack	*ft_init_stack(void)
 /**
  * @brief 
  * 
- * same ass atoi but is atoll but we add
- * len nbr check(pint error)
- * max/min int check
+ * Same as(s) atoi but(t) but we add
+ * a len_nbr_check(print error) at the end
+ * + max int check
+ * INT_MAX	2147483647
+ * INT_MIN	-2147483648
  * 
+ * ft_isspace ft_is_sign ft_isdigit
  * [check sign check space transform in digit]
  * 
- * int	ft_check_int(t_info *info, int *tab_nbr, char **nbr_split, 
- * const char *str)
- * int	ft_atoll_check_max_int(t_info *info, int *tab_nbr,  
- * char **str_nbr_splitted, const char *str);
+ * we also check but the len of the nbr in case
+ * split is for str_nbr_splitted
  * 
- * ft_check_int		ft_atoll_check_max_int
- * split 		str_nbr_splitted
+
  * 
  * @param str 
  * @return int 
@@ -129,7 +136,7 @@ int	ft_check_int(t_info *info, int *tab_nbr, char **split, const char *str)
 	}
 	res = res * sign;
 	if (*str != '\0' || len_res > 10
-		|| res > 2147483647 || res < -2147483648)
+		|| res > INT_MAX || res < INT_MIN)
 		ft_free_maxint(1, info, tab_nbr, split);
 	return ((int)res);
 }

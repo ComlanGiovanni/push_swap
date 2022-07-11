@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 02:28:59 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/09 22:43:30 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/10 17:34:55 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ t_stack_a_b	ft_str_to_stack(char *nbr_joined)
 	tab_nbr = ft_init_stack_checker(nbr_joined, &stack);
 	while (tab_nbr[idx])
 	{
-		nbr = ft_atoi(tab_nbr[idx]);
+		nbr = ft_atol(tab_nbr[idx]);
 		if (nbr < INT_MIN || nbr > INT_MAX)
 			ft_free_fail_init(&stack);
 		if (!ft_doublon_tab_nbr(&stack, nbr))

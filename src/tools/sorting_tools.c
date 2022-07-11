@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 14:00:51 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/06 23:00:35 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/10 20:20:28 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,12 @@ int	ft_get_min(int move_for_a, int move_for_b, int idx_in_a, int idx_in_b)
 /**
  * @brief 
  * 
+ * we need it to set the stack back
+ * to put the good elem of the chunk
+ * at the good pos in stack A because
+ * or good sorting, or its messed
+ * 
+ *
  * if the move for the stack a is > 0
  * we simply rotate else we reverse
  * 
@@ -130,6 +136,11 @@ void	ft_shift_a(t_info *info, int move_for_a)
 /**
  * @brief 
  * 
+ * we need it to set the stack back
+ * to put the good elem of the chunk
+ * at the good pos in stack A because
+ * or good sorting, or its messed
+ *
  * if the move for the stack a is > 0
  * we simply rotate else we reverse
  * 
